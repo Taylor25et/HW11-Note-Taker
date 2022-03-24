@@ -1,10 +1,11 @@
 const fs = require("fs");
 const util = require("util");
-const uuid = require("uuid");
+// const uuid = require("uuid");
 
 // Hover over promisify for extra notes and review day
 const readAsync = util.promisify(fs.readFile);
 const writeAsync = util.promisify(fs.writeFile);
+// const deleteAsync = util.promisify(fs.deleteFile);
 
 class Notes {
   read() {
@@ -32,13 +33,19 @@ class Notes {
     const newNote = {
       title,
       text,
-      entry_id,
     };
 
     return this.readNotes()
       .then((notes) => [...notes, newNote])
       .then((updatedArray) => this.write(updatedArray));
   }
+
+  // delete(data) {
+  //   return deleteAsync("db/db.json", data);
+  // }
+
+  // deleteAsync
+
 }
 
 module.exports = new Notes();

@@ -13,9 +13,9 @@ router.post('/notes', (req, res)=> {
     }).catch((err)=> res.status(500).json(err))
 });
 //need to pass id into 
-router.delete('/notes/:id', (req, res)=> {
-
-});
+// router.delete('/notes/:id', (req, res)=> {
+//     db.
+// });
 
 
 
