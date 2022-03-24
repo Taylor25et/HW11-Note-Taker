@@ -12,10 +12,12 @@ router.post('/notes', (req, res)=> {
     return res.json(notes)
     }).catch((err)=> res.status(500).json(err))
 });
-//need to pass id into 
-// router.delete('/notes/:id', (req, res)=> {
-//     db.
-// });
+
+router.delete('/notes/:id', (req, res)=> {
+    db.deleteNote(re.params.id).then((notes) => {
+        res.json(notes)
+    }).catch((err) => res.status(500).json(err))
+});
 
 
 
