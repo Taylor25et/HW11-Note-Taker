@@ -2,9 +2,10 @@ const fs = require("fs");
 const util = require("util");
 const uuid = require("uuid");
 
-// Hover over promisify for extra notes and review day
+
 const readAsync = util.promisify(fs.readFile);
 const writeAsync = util.promisify(fs.writeFile);
+const 
 
 
 class Notes {
@@ -29,7 +30,7 @@ class Notes {
   }
 
   writeNotes(data) {
-    const { title, text } = data;
+    const { title, text, id } = data;
     const newNote = {
       title,
       text,
