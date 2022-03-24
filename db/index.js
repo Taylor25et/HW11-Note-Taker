@@ -32,7 +32,7 @@ class Notes {
     const newNote = {
       title,
       text,
-      entry_id:
+      entry_id,
     };
 
     return this.readNotes()
