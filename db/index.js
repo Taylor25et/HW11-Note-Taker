@@ -1,11 +1,11 @@
 const fs = require("fs");
 const util = require("util");
-const uuid = require("uuid");
+// const uuid = require("uuid");
 
 
 const readAsync = util.promisify(fs.readFile);
 const writeAsync = util.promisify(fs.writeFile);
-const 
+
 
 
 class Notes {
@@ -30,11 +30,10 @@ class Notes {
   }
 
   writeNotes(data) {
-    const { title, text, id } = data;
+    const { title, text } = data;
     const newNote = {
       title,
       text,
-      id: uuid.v4,
     };
 
     return this.readNotes()
@@ -42,11 +41,11 @@ class Notes {
       .then((updatedArray) => this.write(updatedArray));
   }
 
-  deleteNote(id) {
-    return this.readNotes().then(notes => notes.filter(note=> note.id !== id))
-    .then(notes => this.write(notes))
-    .then(() => this.read())
-  }
+  // deleteNote(id) {
+  //   return this.readNotes().then(notes => notes.filter(note=> note.id !== id))
+  //   .then(notes => this.write(notes))
+  //   .then(() => this.read())
+  // }
 
 }
 
