@@ -1,5 +1,6 @@
 const fs = require("fs");
 const util = require("util");
+const uuid = require("uuid");
 
 // Hover over promisify for extra notes and review day
 const readAsync = util.promisify(fs.readFile);
@@ -9,6 +10,7 @@ class Notes {
   read() {
     return readAsync("db/db.json", "utf-8");
   }
+
   readNotes() {
     return this.read().then((notes) => {
       let allNotes;
@@ -19,6 +21,23 @@ class Notes {
       }
       return allNotes;
     });
+  }
+
+  write(data) {
+    return writeAsync("db/db.json", data);
+  }
+
+  writeNotes(data) {
+    const { title, text } = data;
+    const newNote = {
+      title,
+      text,
+      entry_id:
+    };
+
+    return this.readNotes()
+      .then((notes) => [...notes, newNote])
+      .then((updatedArray) => this.write(updatedArray));
   }
 }
 
