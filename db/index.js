@@ -1,6 +1,6 @@
 const fs = require("fs");
 const util = require("util");
-// const uuid = require("uuid");
+const uuid = require("uuid");
 
 
 const readAsync = util.promisify(fs.readFile);
@@ -26,7 +26,7 @@ class Notes {
   }
 
   write(data) {
-    return writeAsync("db/db.json", data);
+    return writeAsync("db/db.json", JSON.stringify(data));
   }
 
   writeNotes(data) {
@@ -34,18 +34,20 @@ class Notes {
     const newNote = {
       title,
       text,
+      id: uuid.v4()
     };
 
     return this.readNotes()
       .then((notes) => [...notes, newNote])
-      .then((updatedArray) => this.write(updatedArray));
+      .then((updatedArray) => this.write(updatedArray))
+      .then(()=> newNote);
   }
 
-  // deleteNote(id) {
-  //   return this.readNotes().then(notes => notes.filter(note=> note.id !== id))
-  //   .then(notes => this.write(notes))
-  //   .then(() => this.read())
-  // }
+  deleteNote(id) {
+    return this.readNotes().then(notes => notes.filter(note=> note.id !== id))
+    .then(notes => this.write(notes))
+
+  }
 
 }
 
