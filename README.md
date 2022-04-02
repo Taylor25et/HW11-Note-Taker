@@ -1,7 +1,8 @@
 # HW11-Note-Taker
 
 ## Description
-This Note Taker that can be used to write and save notes. <br>
+This Note Taker can be used to write, save, and delete notes. <br>
+![](/public/assets/css/media/main-page.png)
 <br>
 User Story <br>
 AS A small business owner <br>
@@ -12,13 +13,18 @@ SO THAT I can organize my thoughts and keep track of tasks I need to complete<br
 
 - [Installation](#installation)
 - [Usage](#usage)
-
 - [Questions](#questions)
 
 ## Installation 
- [Click Here for Deployed Application](https://fathomless-refuge-02102.herokuapp.com/notes)
+ [Click Here for Deployed Application](https://fathomless-refuge-02102.herokuapp.com/)
 ## Usage
-This application can be used to create, save and delete notes.
+This application can be used to create, save and delete notes. This assignment uses back end routes to connect JS pages with API and HTML routes.
+![](/public/assets/css/media/API-routes.png)
+
+The user can create a new note with a title and body text, then save by clicking the save button.
+![](/public/assets/css/media/createnote.png)
+After they click save, the new note is created and shows up on the left side of the screen in a list. The note can be deleted by clicking the trash icon next to the name of the note.
+![](/public/assets/css/media/saved.png)
 
  
 ## Questions
